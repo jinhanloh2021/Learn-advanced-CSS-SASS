@@ -1,0 +1,133 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/*Universal selector. Reset margin and padding to 0.*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*Include element's padding and border into total width and height*/
+}
+
+/*Set font defaults*/
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 30px; /*Not inherited by children. Only applies to body.*/
+}
+
+.header {
+  position: relative;
+  height: 95vh; /*Means that header will always be 95% of viewport*/
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.8),
+      rgba(40, 180, 133, 0.8)
+    ),
+    url("../img/hero.jpg"); /*Adding img to an element. Add linear-gradient.*/
+  background-size: cover; /*Means that the image will adjust in size to fit the viewport*/
+  background-position: top; /*Means that top of img is fixed to top of screen. Bottom will scale*/
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+/*Absolute element inside relative element, the absolute measurements will be within the parent element.*/
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px; /*width will be figured out by the browser*/
+}
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(
+    -50%,
+    -50%
+  ); /*Shifts left and top by 50% of the ELEMENT's size, not the PARENT'S size*/
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase; /*Makes entire text to upper*/
+
+  backface-visibility: hidden; /* to fix shaky behaviour in animation */
+}
+
+/*To make main and sub top and bottom, we can make them block-elements. So that they take up the entire width of the screen.*/
+.heading-primary-main {
+  display: block; /*set this span element to be block. By default, <span> are inline elements.*/
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+  margin-right: -35px; /*Letter spacing adds a space at the end of the text. Use negative margin to shift back.*/
+
+  /*animations*/
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+
+  /*
+  animation-iteration-count: 3;
+  animation-delay: 3s;
+  */
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+  margin-right: -17.4px;
+
+  /*animations*/
+  animation: moveInRight 1s cubic-bezier(0.19, 1, 0.22, 1);
+
+  /* animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1); */
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  15% {
+    transform: translateX(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  15% {
+    transform: translateX(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}

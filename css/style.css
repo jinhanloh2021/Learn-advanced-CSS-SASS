@@ -53,6 +53,7 @@ body {
   position: absolute;
   top: 40%;
   left: 50%;
+  text-align: center;
   transform: translate(
     -50%,
     -50%
@@ -64,6 +65,7 @@ body {
   text-transform: uppercase; /*Makes entire text to upper*/
 
   backface-visibility: hidden; /* to fix shaky behaviour in animation */
+  margin-bottom: 60px;
 }
 
 /*To make main and sub top and bottom, we can make them block-elements. So that they take up the entire width of the screen.*/
@@ -76,7 +78,7 @@ body {
 
   /*animations*/
   animation-name: moveInLeft;
-  animation-duration: 1s;
+  animation-duration: 1.25s;
   animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
 
   /*
@@ -93,7 +95,7 @@ body {
   margin-right: -17.4px;
 
   /*animations*/
-  animation: moveInRight 1s cubic-bezier(0.19, 1, 0.22, 1);
+  animation: moveInRight 1.25s cubic-bezier(0.19, 1, 0.22, 1);
 
   /* animation-name: moveInRight;
   animation-duration: 1s;
@@ -130,4 +132,75 @@ body {
     opacity: 1;
     transform: translate(0);
   }
+}
+
+/*Pseudoclass*/
+.btn:link,
+.btn:visited {
+  position: relative;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 50px;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+/*After pseudo element. Treated like the child of btn*/
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  15% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.btn-animated {
+  animation: moveInBottom 1.25s cubic-bezier(0.19, 1, 0.22, 1) 0.25s;
+  animation-fill-mode: backwards;
 }

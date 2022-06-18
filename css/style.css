@@ -7,21 +7,28 @@ Dark green: #28b485
 
 */
 
-/*Universal selector. Reset margin and padding to 0.*/
-* {
+/*Universal selector, selects all DOM elements. Reset margin and padding to 0.*/
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /*Include element's padding and border into total width and height*/
+  box-sizing: inherit; /*All elements inherit the border-box property for box-sizing. Inherited from body element*/
+}
+
+html {
+  font-size: 62.5%; /*root font size. 1rem = 10px, 1.5rem = 15px*/
 }
 
 /*Set font defaults*/
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px; */
   line-height: 1.7;
   color: #777;
-  padding: 30px; /*Not inherited by children. Only applies to body.*/
+  padding: 3rem; /*Not inherited by children. Only applies to body.*/
+  box-sizing: border-box; /*Include element's padding and border into total width and height*/
 }
 
 .header {
@@ -41,12 +48,12 @@ body {
 /*Absolute element inside relative element, the absolute measurements will be within the parent element.*/
 .logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
-  height: 35px; /*width will be figured out by the browser*/
+  height: 3.5rem; /*width will be figured out by the browser*/
 }
 
 .text-box {
@@ -65,16 +72,16 @@ body {
   text-transform: uppercase; /*Makes entire text to upper*/
 
   backface-visibility: hidden; /* to fix shaky behaviour in animation */
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 
 /*To make main and sub top and bottom, we can make them block-elements. So that they take up the entire width of the screen.*/
 .heading-primary-main {
   display: block; /*set this span element to be block. By default, <span> are inline elements.*/
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
-  margin-right: -35px; /*Letter spacing adds a space at the end of the text. Use negative margin to shift back.*/
+  letter-spacing: 3.5rem;
+  margin-right: -3.5rem; /*Letter spacing adds a space at the end of the text. Use negative margin to shift back.*/
 
   /*animations*/
   animation-name: moveInLeft;
@@ -89,10 +96,10 @@ body {
 
 .heading-primary-sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
-  margin-right: -17.4px;
+  letter-spacing: 1.74rem;
+  margin-right: -1.74rem;
 
   /*animations*/
   animation: moveInRight 1.25s cubic-bezier(0.19, 1, 0.22, 1);
@@ -105,11 +112,11 @@ body {
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
 
   15% {
-    transform: translateX(20px);
+    transform: translateX(2rem);
   }
 
   100% {
@@ -121,11 +128,11 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
 
   15% {
-    transform: translateX(-20px);
+    transform: translateX(-2rem);
   }
 
   100% {
@@ -140,20 +147,21 @@ body {
   position: relative;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   display: inline-block;
-  border-radius: 50px;
+  border-radius: 5rem;
   transition: all 0.2s;
+  font-size: 1.6rem;
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
 }
 
 .btn-white {
@@ -167,7 +175,7 @@ body {
   display: inline-block;
   height: 100%;
   width: 100%;
-  border-radius: 50px;
+  border-radius: 5rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -187,11 +195,11 @@ body {
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(100px);
+    transform: translateY(10rem);
   }
 
   15% {
-    transform: translateY(-20px);
+    transform: translateY(-2rem);
   }
 
   100% {

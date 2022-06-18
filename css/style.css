@@ -46,17 +46,17 @@ body {
 }
 
 /*Absolute element inside relative element, the absolute measurements will be within the parent element.*/
-.logo-box {
+.header__logo-box {
   position: absolute;
   top: 4rem;
   left: 4rem;
 }
 
-.logo {
+.header__logo {
   height: 3.5rem; /*width will be figured out by the browser*/
 }
 
-.text-box {
+.header__text-box {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -76,7 +76,7 @@ body {
 }
 
 /*To make main and sub top and bottom, we can make them block-elements. So that they take up the entire width of the screen.*/
-.heading-primary-main {
+.heading-primary--main {
   display: block; /*set this span element to be block. By default, <span> are inline elements.*/
   font-size: 6rem;
   font-weight: 400;
@@ -94,7 +94,7 @@ body {
   */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
@@ -164,7 +164,7 @@ body {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
@@ -183,7 +183,7 @@ body {
   transition: all 0.4s;
 }
 
-.btn-white::after {
+.btn--white::after {
   background-color: #fff;
 }
 
@@ -208,7 +208,7 @@ body {
   }
 }
 
-.btn-animated {
+.btn--animated {
   animation: moveInBottom 1.25s cubic-bezier(0.19, 1, 0.22, 1) 0.25s;
   animation-fill-mode: backwards;
 }

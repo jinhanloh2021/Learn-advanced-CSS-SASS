@@ -1,0 +1,31 @@
+.container {
+  background-color: #ccc;
+  padding: 10px;
+  display: flex; //child elements displayed side by side
+  flex-direction: row; //left to right or right to left
+  justify-content: center; //the space between each element
+  align-items: baseline; //the line passing through all elements
+}
+.item {
+  background-color: #f1425d;
+  padding: 40px;
+  margin: 30px;
+  color: #fff;
+  font-size: 30px;
+  // flex: 1; //stretches horizontally till hits margin, spaces evenly.
+}
+
+.i2 {
+  flex: 2; //stretches twice as much as flex-grow 1.
+}
+
+.i3 {
+  //flex (grow: 0, shrink: 1, basis: 0)
+  flex: 2 0 300px;
+  height: 200px;
+}
+
+.i5 {
+  align-self: stretch; //this stretches vertically to match tallest element
+  order: -1; //changes order of elements
+}

@@ -1,9 +1,9 @@
 import React from 'react';
 import '../Styles/components/Container.css';
 
-type Props = {};
+// type Props = {};
 
-export default function Container({}: Props): JSX.Element {
+export default function Container(): JSX.Element {
   return (
     <div className="container">
       <div className="item">1</div>

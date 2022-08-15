@@ -1,6 +1,7 @@
 .user-nav {
   display: flex;
   align-self: stretch;
+  align-items: stretch;
 
   //selects all direct children.
   & > * {
